@@ -18,13 +18,55 @@ public class Employee {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long employeeId;
 	
-    private String employeeName;
-    private String employeePosition;
+    private String employeeFirstName;
+    private String employeeLastName;
+	private String employeePhone;
+	private String employeeJobTitle;
     
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pet_store_id")
-    
     private PetStore petStore;
+    
+    public Long getId() {
+    	return employeeId;
+    }
+    
+    public void setId(Long id) {
+    	this.employeeId = id;
+    }
+    
+    public String getEmployeeFirstName() {
+    	return employeeFirstName;
+    }
+    
+    public void setEmployeeFirstName(String firstName) {
+    	this.employeeFirstName = firstName;
+    }
+    
+    public String getEmployeeLastName() {
+    	return employeeLastName;
+    }
+    
+    public void setEmployeeLastName(String lastName) {
+    	this.employeeLastName = lastName;
+    }
+    
+	public String getEmployeePhone() {
+		return employeePhone;
+	}
+	
+	public void setEmployeePhone(String phone) {
+    	this.employeePhone = phone;
+    }
+	
+
+	public String getEmployeeJobTitle() {
+		return employeeJobTitle;
+	}
+	
+	public void setEmployeeJobTitle(String jobTitle) {
+    	this.employeeJobTitle = jobTitle;
+    }
 }

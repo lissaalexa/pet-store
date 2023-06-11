@@ -27,8 +27,8 @@ public class PetStoreData {
     private String petStoreState;
     private String petStoreZip;
     private String petStorePhone;
-	private Set<CustomerData> customers;
-	private Set<EmployeeData> employees;
+	private Set<CustomerData> customers = new HashSet<>();
+	private Set<EmployeeData> employees = new HashSet<>();
 
 	public PetStoreData(PetStore petStore) {
 		petStoreId = petStore.getPetStoreId();
@@ -81,5 +81,4 @@ public class PetStoreData {
 	       employeeJobTitle = employee.getEmployeeJobTitle();   
 		}
 	}
-
 }

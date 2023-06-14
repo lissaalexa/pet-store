@@ -165,10 +165,17 @@ public class PetStoreService {
 	private Customer findCustomerById(Long petStoreId, Long customerId) {
 		Customer customer = customerDao.findById(customerId)
                 .orElseThrow(() -> new NoSuchElementException("Customer with ID=" + customerId + " was not found."));
-        //if (customer.getPetStore().getId().equals(petStoreId)) {
-            return customer;
-       // } else {
-       //     throw new IllegalArgumentException("Customer with ID=" + customerId + " does not belong to Pet Store with ID=" + petStoreId);
-       // }
+        boolean found = false;
+        for (PetStore petStore : customer.getPetStores()) {
+        	if(petStore.getPetStoreId() == petStoreId) {
+        		found = true;
+        		break;
+        	}
+        }
+        if(!found) {
+        	throw new IllegalArgumentException("The customer with ID=" + customerId + 
+        			" is not a memeber of the pet store wih ID=" + petStoreId);
+        }
+        return customer;
 	}
 }

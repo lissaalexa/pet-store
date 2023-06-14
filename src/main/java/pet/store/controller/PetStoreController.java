@@ -69,6 +69,7 @@ public class PetStoreController {
 	
 	@GetMapping("/{petStoreId}")
 	public PetStoreData retrievePetStoreById(@PathVariable Long petStoreId) {
+	log.info("Retrieve pet store with ID+{}", petStoreId);
 	return petStoreService.retrievePetStoreById(petStoreId);
 	}
 	
